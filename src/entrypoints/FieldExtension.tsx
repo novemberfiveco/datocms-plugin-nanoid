@@ -2,8 +2,10 @@ import { RenderFieldExtensionCtx } from 'datocms-plugin-sdk';
 import { Canvas } from 'datocms-react-ui';
 import { Parameters } from './ConfigScreen';
 import { nanoid } from 'nanoid';
+import get from 'lodash.get';
 
 import s from './styles.module.css';
+import { useEffect } from 'react';
 
 type Props = {
   ctx: RenderFieldExtensionCtx;
@@ -12,12 +14,16 @@ type Props = {
 export default function FieldExtension({ ctx }: Props) {
   const params = ctx.plugin.attributes.parameters as Parameters;
   const hideField = !!params.hideField;
-  // Get the current value
-  const currentValue = ctx.formValues[ctx.fieldPath] as string;
+  const currentValue = get(ctx.formValues, ctx.fieldPath) as string;
+  // Destructure so we don't generate endless loops
+  const { setFieldValue, fieldPath } = ctx;
 
-  if (!currentValue) {
-    ctx.setFieldValue(ctx.fieldPath, nanoid());
-  }
+  // Set the current value if we didn't have a value yet
+  useEffect(() => {
+    if (!currentValue) {
+      setFieldValue(fieldPath, nanoid());
+    }
+  }, [setFieldValue, fieldPath, currentValue]);
 
   if (hideField) {
     ctx.toggleField(ctx.fieldPath, !hideField);

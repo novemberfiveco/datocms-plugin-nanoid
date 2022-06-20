@@ -12,6 +12,7 @@
   "dependencies": {
     "datocms-plugin-sdk": "^0.5.2",
     "datocms-react-ui": "^0.5.2",
+    "lodash.get": "^4.4.2",
     "nanoid": "^4.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -20,10 +21,11 @@
     "typescript": "^4.7.3"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
+    "@types/lodash.get": "^4.4.7",
     "@types/node": "^16.11.41",
     "@types/react": "^17.0.44",
-    "@types/react-dom": "^17.0.15"
+    "@types/react-dom": "^17.0.15",
+    "cross-env": "^7.0.3"
   },
   "scripts": {
     "start": "cross-env BROWSER='none' PUBLIC_URL='/' react-scripts start",
