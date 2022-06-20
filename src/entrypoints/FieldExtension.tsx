@@ -1,7 +1,9 @@
 import { RenderFieldExtensionCtx } from 'datocms-plugin-sdk';
 import { Canvas } from 'datocms-react-ui';
 import { Parameters } from './ConfigScreen';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
+
+import s from './styles.module.css';
 
 type Props = {
   ctx: RenderFieldExtensionCtx;
@@ -14,7 +16,7 @@ export default function FieldExtension({ ctx }: Props) {
   const currentValue = ctx.formValues[ctx.fieldPath] as string;
 
   if (!currentValue) {
-    ctx.setFieldValue(ctx.fieldPath, uuidv4());
+    ctx.setFieldValue(ctx.fieldPath, nanoid());
   }
 
   if (hideField) {
@@ -24,6 +26,20 @@ export default function FieldExtension({ ctx }: Props) {
     // Always disable the field
     ctx.disableField(ctx.fieldPath, true);
 
-    return <Canvas ctx={ctx}>{currentValue}</Canvas>;
+    return (
+      <Canvas ctx={ctx}>
+        <div className={s.root}>
+          {currentValue}
+
+          <button
+            type="button"
+            className={s.link}
+            onClick={() => ctx.setFieldValue(ctx.fieldPath, nanoid())}
+          >
+            Regenerate
+          </button>
+        </div>
+      </Canvas>
+    );
   }
 }

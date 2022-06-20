@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link {
+  all: inherit;
+  color: var(--accent-color);
+  text-decoration: underline;
+  padding: 0;
+  cursor: pointer;
+}
+
+.link:hover {
+  text-decoration: none;
+}

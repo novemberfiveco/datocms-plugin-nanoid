@@ -46,11 +46,11 @@ export default function ConfigScreen({ ctx }: Props) {
                 <TextField
                   {...field}
                   required
-                  placeholder="uuid"
+                  placeholder="nanoid"
                   error={fieldState.error?.message}
                   id="apiKey"
-                  label="Auto apply uuidv4 to this field"
-                  hint="The name of the api key to use for automatically generating the stable uuidv4"
+                  label="DatoCMS field api_key"
+                  hint="The name of the api key to use for nanoid"
                 />
               );
             }}
@@ -67,8 +67,8 @@ export default function ConfigScreen({ ctx }: Props) {
                   required
                   error={fieldState.error?.message}
                   id="hideField"
-                  label="Hide uuid field"
-                  hint="Enabling this will hide the auto generated uuid field"
+                  label="Hide field"
+                  hint="Enabling this will hide the auto generated field"
                 />
               );
             }}

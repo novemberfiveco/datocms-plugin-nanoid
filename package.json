@@ -1,23 +1,29 @@
 {
-  "name": "datocms-plugin-stable-uuid",
+  "name": "datocms-plugin-nanoid",
   "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "@types/uuid": "^8.3.4",
-    "cross-env": "^7.0.3"
-  },
+  "homepage": "https://github.com/novemberfiveco/datocms-plugin-nanoid",
+  "description": "DatoCMS plugin that adds a hidden stable nanoid field",
+  "license": "MIT",
+  "keywords": [
+    "datocms-plugin",
+    "nanoid"
+  ],
+  "private": false,
   "dependencies": {
-    "@types/node": "^16.11.41",
-    "@types/react": "^17.0.44",
-    "@types/react-dom": "^17.0.15",
     "datocms-plugin-sdk": "^0.5.2",
     "datocms-react-ui": "^0.5.2",
+    "nanoid": "^4.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.32.1",
     "react-scripts": "5.0.1",
-    "typescript": "^4.7.3",
-    "uuid": "^8.3.2"
+    "typescript": "^4.7.3"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "@types/node": "^16.11.41",
+    "@types/react": "^17.0.44",
+    "@types/react-dom": "^17.0.15"
   },
   "scripts": {
     "start": "cross-env BROWSER='none' PUBLIC_URL='/' react-scripts start",
@@ -44,9 +50,10 @@
     ]
   },
   "datoCmsPlugin": {
-    "title": "",
-    "previewImage": "",
-    "coverImage": "",
-    "entryPoint": "build/index.html"
+    "title": "Nano ID",
+    "previewImage": "docs/field.png",
+    "coverImage": "docs/cover.png",
+    "entryPoint": "build/index.html",
+    "permissions": []
   }
 }
