@@ -8,13 +8,13 @@ Plugin that adds nanoid's to any field automatically. This allows to have unique
 
 After installing the plugin, you'll need to configure the plugin settings:
 
-![Configuration screenshot](./docs/configuration.png)
+![Configuration screenshot](https://github.com/novemberfiveco/datocms-plugin-nanoid/blob/master/docs/configuration.png?raw=true)
 
 You can specify the `api_key` of the field that will be automatically converted to a hidden "`nanoid`" field. A good name is `nanoid`, then add a single line string field to a model and call it `nanoid`.
 
 The `hide field` option by default is turned on, if you turn it off the field is displayed and you can regenerate the id.
 
-![Field](./docs/field.png)
+![Field](https://github.com/novemberfiveco/datocms-plugin-nanoid/blob/master/docs/field.png?raw=true)
 
 ## Development
 
