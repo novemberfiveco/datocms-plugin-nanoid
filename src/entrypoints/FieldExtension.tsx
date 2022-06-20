@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import get from 'lodash.get';
 
 import s from './styles.module.css';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 
 type Props = {
   ctx: RenderFieldExtensionCtx;
@@ -16,17 +16,17 @@ export default function FieldExtension({ ctx }: Props) {
   const hideField = !!params.hideField;
   const currentValue = get(ctx.formValues, ctx.fieldPath) as string;
   // Destructure so we don't generate endless loops
-  const { setFieldValue, fieldPath } = ctx;
+  const { setFieldValue, toggleField, fieldPath } = ctx;
 
   // Set the current value if we didn't have a value yet
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!currentValue) {
       setFieldValue(fieldPath, nanoid());
     }
-  }, [setFieldValue, fieldPath, currentValue]);
+    toggleField(fieldPath, !hideField);
+  }, [setFieldValue, fieldPath, currentValue, toggleField, hideField]);
 
   if (hideField) {
-    ctx.toggleField(ctx.fieldPath, !hideField);
     return null;
   } else {
     // Always disable the field
