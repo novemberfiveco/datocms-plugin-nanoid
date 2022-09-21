@@ -1,3 +1,6 @@
+# Deprecated
+This plugin is deprecated since DatoCMS now has stable ID's. After a migration the record / item types / modular blocks all keep their original ID. There is no need for this plugin anymore. For more information [read the announcement](https://www.datocms.com/product-updates/immutable-ids-during-environment-fork-and-site-duplication)
+
 # Nano ID DatoCMS Plugin
 
 Created by [November Five](https://www.novemberfive.co/)
